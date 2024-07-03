@@ -5,7 +5,7 @@ def get_chroma_client():
     pass
 
 def create_or_load_index(index_name='knowledge_base'):
-    embeddings = GoogleGenerativeAIEmbeddings(model='models/embedding-001', google_api_key='AIzaSyAmlzXyisknetIo4DRWo97e9pQqAQuuCvQ')
+    embeddings = GoogleGenerativeAIEmbeddings(model='models/embedding-001', google_api_key='your_google_api_key_here')
     return Chroma(embedding_function=embeddings)
 
 def upsert_documents(chroma_index, docs):

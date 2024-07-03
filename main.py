@@ -9,7 +9,7 @@ app = FastAPI()
 
 embedding_model = get_embedding_model()
 chroma_index = create_or_load_index()
-google_customsearch_service = get_google_customsearch_service('AIzaSyAmlzXyisknetIo4DRWo97e9pQqAQuuCvQ')
+google_customsearch_service = get_google_customsearch_service('your_google_api_key_here')
 
 class Document(BaseModel):
     id:str
