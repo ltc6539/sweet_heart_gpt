@@ -1,0 +1,23 @@
+# Test the root endpoint
+GET http://127.0.0.1:8000/
+
+###
+
+# Test the upsert-documents endpoint
+POST http://127.0.0.1:8000/upsert-documents/
+Content-Type: application/json
+
+[
+  {"id": "1", "content": "This is the first document."},
+  {"id": "2", "content": "This is the second document."}
+]
+
+###
+
+# Test the query endpoint
+POST http://127.0.0.1:8000/query/
+Content-Type: application/json
+
+{
+  "question": "What is the content of the first document?"
+}
