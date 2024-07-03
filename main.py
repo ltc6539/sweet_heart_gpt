@@ -4,12 +4,17 @@ from models.embeddings import get_embedding_model
 from database.chroma import get_chroma_client,create_or_load_index,upsert_documents
 from services.google_gemini import get_google_customsearch_service
 from typing import List
+import os
+from dotenv import load_dotenv
+load_dotenv('API_KEY.env')
+GOOGLE_API_KEY = os.getenv('GOOGLE_KEY')
+os.environ['GOOGLE_API_KEY'] = GOOGLE_API_KEY
 
 app = FastAPI()
 
 embedding_model = get_embedding_model()
 chroma_index = create_or_load_index()
-google_customsearch_service = get_google_customsearch_service('your_google_api_key_here')
+google_customsearch_service = get_google_customsearch_service(GOOGLE_API_KEY)
 
 class Document(BaseModel):
     id:str
